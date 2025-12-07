@@ -1,0 +1,1448 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Drone Builder Guide</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: Arial, sans-serif;
+            background: #f5f5f5;
+            color: #333;
+            line-height: 1.6;
+        }
+        
+        .container {
+            max-width: 100%;
+            background: white;
+        }
+        
+        header {
+            background: #2c3e50;
+            color: white;
+            padding: 15px;
+            text-align: center;
+        }
+        
+        h1 {
+            font-size: 18px;
+            font-weight: bold;
+        }
+        
+        .section {
+            padding: 15px;
+            border-bottom: 1px solid #eee;
+        }
+        
+        h2 {
+            font-size: 16px;
+            color: #2c3e50;
+            font-weight: bold;
+            margin-bottom: 10px;
+            background: #ecf0f1;
+            padding: 8px;
+        }
+        
+        h3 {
+            font-size: 14px;
+            color: #34495e;
+            font-weight: bold;
+            margin: 12px 0 6px 0;
+        }
+        
+        p, li {
+            font-size: 14px;
+            margin-bottom: 8px;
+        }
+        
+        ul {
+            padding-left: 20px;
+        }
+        
+        .part-box {
+            background: #f8f9fa;
+            padding: 10px;
+            margin: 10px 0;
+            border-left: 4px solid #3498db;
+        }
+        
+        .price {
+            color: #27ae60;
+            font-weight: bold;
+        }
+        
+        .warning {
+            background: #fff3cd;
+            border-left: 4px solid #ffc107;
+            padding: 10px;
+            margin: 10px 0;
+        }
+        
+        .tip {
+            background: #d1ecf1;
+            border-left: 4px solid #17a2b8;
+            padding: 10px;
+            margin: 10px 0;
+        }
+        
+        .step {
+            background: #e7f3ff;
+            padding: 10px;
+            margin: 8px 0;
+            border-radius: 4px;
+        }
+        
+        .step-number {
+            display: inline-block;
+            background: #007bff;
+            color: white;
+            width: 25px;
+            height: 25px;
+            text-align: center;
+            line-height: 25px;
+            border-radius: 50%;
+            margin-right: 8px;
+            font-weight: bold;
+        }
+        
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 10px 0;
+            font-size: 13px;
+        }
+        
+        th, td {
+            border: 1px solid #ddd;
+            padding: 8px;
+            text-align: left;
+        }
+        
+        th {
+            background: #34495e;
+            color: white;
+        }
+        
+        .icon {
+            display: inline-block;
+            width: 20px;
+            height: 20px;
+            margin-right: 5px;
+            vertical-align: middle;
+        }
+        
+        .nav {
+            position: sticky;
+            top: 0;
+            background: #34495e;
+            padding: 10px;
+            overflow-x: auto;
+            white-space: nowrap;
+            z-index: 100;
+            -webkit-overflow-scrolling: touch;
+        }
+        
+        .nav button {
+            color: white;
+            text-decoration: none;
+            padding: 8px 12px;
+            display: inline-block;
+            font-size: 13px;
+            border-radius: 4px;
+            transition: background 0.2s;
+            background: transparent;
+            border: none;
+            cursor: pointer;
+            font-family: Arial, sans-serif;
+        }
+        
+        .nav button:hover,
+        .nav button:active {
+            background: #2c3e50;
+        }
+        
+        .nav button.active {
+            background: #2c3e50;
+        }
+        
+        .image-placeholder {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            height: 120px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 12px;
+            text-align: center;
+            margin: 10px 0;
+            border-radius: 4px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Complete Drone Building Guide for Filipinos</h1>
+            <p style="font-size: 12px; margin-top: 5px;">Build your own racing or camera drone step by step</p>
+        </header>
+        
+        <div class="nav">
+            <button onclick="scrollToSection('intro')">Start</button>
+            <button onclick="scrollToSection('parts')">Parts</button>
+            <button onclick="scrollToSection('tools')">Tools</button>
+            <button onclick="scrollToSection('build')">Build</button>
+            <button onclick="scrollToSection('setup')">Setup</button>
+            <button onclick="scrollToSection('fly')">Flying</button>
+            <button onclick="scrollToSection('legal')">Legal</button>
+            <button onclick="scrollToSection('repair')">Repair</button>
+            <button onclick="scrollToSection('advanced')">Advanced</button>
+            <button onclick="scrollToSection('winter')">Winter</button>
+            <button onclick="scrollToSection('tricks')">Tricks</button>
+            <button onclick="scrollToSection('photo')">Photo</button>
+        </div>
+        
+        <div class="section" id="intro">
+            <h2>What You Need to Know</h2>
+            <p>Building your own drone in the Philippines is cheaper than buying ready-made. You can customize it for racing, photography, or just fun flying. This guide uses plain English and focuses on parts available in Manila, Cebu, and online stores that ship to PH.</p>
+            
+            <div class="tip">
+                <strong>Budget Range:</strong><br>
+                Basic drone: PHP 8,000 - 12,000<br>
+                Mid-range: PHP 15,000 - 25,000<br>
+                Advanced: PHP 30,000+
+            </div>
+            
+            <h3>What Type of Drone to Build</h3>
+            <ul>
+                <li><strong>Racing Drone:</strong> Fast, agile, needs FPV goggles</li>
+                <li><strong>Freestyle Drone:</strong> For tricks and aerial flips</li>
+                <li><strong>Cinematic Drone:</strong> Smooth camera shots, stable flight</li>
+                <li><strong>Long Range:</strong> Fly far, longer battery life</li>
+            </ul>
+        </div>
+        
+        <div class="section" id="parts">
+            <h2>Essential Parts List</h2>
+            <p>These are the main components you need. All available in PH through Lazada, Shopee, or hobby shops in Greenhills and Gilmore.</p>
+            
+            <div class="part-box">
+                <h3>1. Frame</h3>
+                <p>The skeleton that holds everything together. Made of carbon fiber for strength and light weight.</p>
+                <p><strong>Size:</strong> 5 inch is most common (refers to propeller size)</p>
+                <p><strong>Popular choices:</strong></p>
+                <ul>
+                    <li>Martian II - <span class="price">PHP 1,500-2,000</span></li>
+                    <li>QAV-R - <span class="price">PHP 2,500-3,500</span></li>
+                    <li>Generic Chinese frames - <span class="price">PHP 800-1,200</span></li>
+                </ul>
+                <div class="image-placeholder">Frame: X-shaped carbon fiber base with arms</div>
+            </div>
+            
+            <div class="part-box">
+                <h3>2. Motors (You Need 4)</h3>
+                <p>Brushless motors that spin the propellers. Size written like 2205, 2306, etc.</p>
+                <p><strong>For 5 inch drone:</strong> Use 2205-2306 size motors</p>
+                <p><strong>KV rating:</strong> Higher KV = faster speed, lower flight time</p>
+                <ul>
+                    <li>Racing: 2300-2600 KV</li>
+                    <li>Freestyle: 1900-2300 KV</li>
+                    <li>Cinematic: 1700-1900 KV</li>
+                </ul>
+                <p><strong>Price:</strong> <span class="price">PHP 600-1,200 each</span> (buy 4)</p>
+                <p><strong>Brands:</strong> Emax, T-Motor, BrotherHobby, RCinPower</p>
+                <div class="image-placeholder">Motor: Round metal cylinder with rotating shaft</div>
+            </div>
+            
+            <div class="part-box">
+                <h3>3. ESC - Electronic Speed Controller (You Need 4)</h3>
+                <p>Controls motor speed. Modern drones use 4-in-1 ESC (all in one board) or individual ESCs.</p>
+                <p><strong>Important specs:</strong></p>
+                <ul>
+                    <li>Current rating: 30A, 35A, 40A (higher for bigger motors)</li>
+                    <li>Firmware: BLHeli_S or BLHeli_32 (32 is better)</li>
+                    <li>For 5 inch: Use 30-35A ESC</li>
+                </ul>
+                <p><strong>4-in-1 ESC:</strong> <span class="price">PHP 1,800-3,500</span></p>
+                <p><strong>Individual ESC:</strong> <span class="price">PHP 300-600 each (buy 4)</span></p>
+                <div class="image-placeholder">ESC: Small electronic board with wires</div>
+            </div>
+            
+            <div class="part-box">
+                <h3>4. Flight Controller (FC)</h3>
+                <p>The brain of the drone. Stabilizes flight and processes your commands.</p>
+                <p><strong>Popular firmware:</strong> Betaflight (most common), INAV, Kiss</p>
+                <p><strong>F4 vs F7:</strong> F7 is faster processor, better for GPS and complex setups</p>
+                <p><strong>Price:</strong> <span class="price">PHP 1,500-3,500</span></p>
+                <p><strong>Many come in stack with ESC:</strong> FC + ESC combo saves space</p>
+                <div class="image-placeholder">Flight Controller: Small circuit board with chips</div>
+            </div>
+            
+            <div class="part-box">
+                <h3>5. Radio Receiver (RX)</h3>
+                <p>Receives signals from your controller. Must match your transmitter protocol.</p>
+                <p><strong>Protocols:</strong></p>
+                <ul>
+                    <li>FrSky (most popular in PH)</li>
+                    <li>FlySky (budget friendly)</li>
+                    <li>TBS Crossfire (long range)</li>
+                    <li>ExpressLRS (new, very good, cheap)</li>
+                </ul>
+                <p><strong>Price:</strong> <span class="price">PHP 600-2,500</span></p>
+                <div class="image-placeholder">Receiver: Small box with antenna wire</div>
+            </div>
+            
+            <div class="part-box">
+                <h3>6. FPV Camera</h3>
+                <p>The camera you see through while flying. Not for recording, just for real-time view.</p>
+                <p><strong>Specs:</strong></p>
+                <ul>
+                    <li>Size: Micro (19mm) or Mini (28mm)</li>
+                    <li>Sensor: CMOS or CCD (CMOS is standard now)</li>
+                    <li>Look for: Good low-light performance, wide dynamic range</li>
+                </ul>
+                <p><strong>Popular:</strong> Runcam, Foxeer, Caddx</p>
+                <p><strong>Price:</strong> <span class="price">PHP 1,200-2,500</span></p>
+                <div class="image-placeholder">FPV Camera: Small camera with lens and circuit board</div>
+            </div>
+            
+            <div class="part-box">
+                <h3>7. Video Transmitter (VTX)</h3>
+                <p>Sends camera feed to your goggles. Uses 5.8GHz frequency.</p>
+                <p><strong>Power:</strong> 25mW to 800mW (higher = longer range but drains battery)</p>
+                <p><strong>For Philippines:</strong> 25mW-200mW is legal and enough for most flying</p>
+                <p><strong>Price:</strong> <span class="price">PHP 800-2,000</span></p>
+                <div class="warning">
+                    <strong>Important:</strong> VTX needs antenna always connected or it will burn out instantly when powered on!
+                </div>
+                <div class="image-placeholder">VTX: Small board with antenna connector</div>
+            </div>
+            
+            <div class="part-box">
+                <h3>8. Battery (LiPo)</h3>
+                <p>Lithium Polymer battery that powers everything. Most critical and dangerous part.</p>
+                <p><strong>For 5 inch drone:</strong></p>
+                <ul>
+                    <li>Size: 4S (14.8V) or 6S (22.2V)</li>
+                    <li>Capacity: 1300-1800 mAh</li>
+                    <li>Connector: XT60 is standard</li>
+                    <li>C-rating: 70C or higher</li>
+                </ul>
+                <p><strong>Price:</strong> <span class="price">PHP 1,200-2,500 each</span></p>
+                <p><strong>Buy at least 3-5 batteries</strong> for decent flying time</p>
+                <div class="warning">
+                    <strong>Battery Safety:</strong><br>
+                    - Never leave charging unattended<br>
+                    - Store at 3.8V per cell<br>
+                    - Use fireproof bag<br>
+                    - Check for puffing or damage<br>
+                    - Dispose properly if damaged
+                </div>
+                <div class="image-placeholder">LiPo Battery: Rectangular pack with wires and connector</div>
+            </div>
+            
+            <div class="part-box">
+                <h3>9. Propellers (You Need Many)</h3>
+                <p>You will crash and break these. Buy at least 10 sets.</p>
+                <p><strong>For 5 inch frame:</strong> Use 5 inch props</p>
+                <p><strong>Pitch:</strong> 3-blade or 4-blade</p>
+                <ul>
+                    <li>3-blade: More efficient, longer flight time</li>
+                    <li>4-blade: More grip, better for freestyle</li>
+                </ul>
+                <p><strong>Price:</strong> <span class="price">PHP 150-400 per set of 4</span></p>
+                <p><strong>Popular:</strong> HQ Props, Gemfan, DAL</p>
+                <div class="image-placeholder">Propellers: Plastic blades in CW and CCW rotation</div>
+            </div>
+            
+            <h3>Additional Parts You Need</h3>
+            <table>
+                <tr>
+                    <th>Part</th>
+                    <th>Purpose</th>
+                    <th>Price</th>
+                </tr>
+                <tr>
+                    <td>Antenna (2pcs)</td>
+                    <td>For VTX</td>
+                    <td>PHP 200-500</td>
+                </tr>
+                <tr>
+                    <td>Power Distribution Board (PDB)</td>
+                    <td>Distributes power (if ESC has no PDB)</td>
+                    <td>PHP 200-500</td>
+                </tr>
+                <tr>
+                    <td>XT60 Connectors</td>
+                    <td>Battery connector</td>
+                    <td>PHP 30-50 each</td>
+                </tr>
+                <tr>
+                    <td>Capacitor 35V 1000uF</td>
+                    <td>Protects electronics</td>
+                    <td>PHP 50-100</td>
+                </tr>
+                <tr>
+                    <td>Heat Shrink Tubing</td>
+                    <td>Protects soldered joints</td>
+                    <td>PHP 100-200</td>
+                </tr>
+                <tr>
+                    <td>Wire (16-20 AWG)</td>
+                    <td>Connections</td>
+                    <td>PHP 50-100</td>
+                </tr>
+                <tr>
+                    <td>Zip Ties & Velcro</td>
+                    <td>Securing components</td>
+                    <td>PHP 100-200</td>
+                </tr>
+                <tr>
+                    <td>Screws & Standoffs</td>
+                    <td>Assembly hardware</td>
+                    <td>Usually included with frame</td>
+                </tr>
+            </table>
+        </div>
+        
+        <div class="section" id="tools">
+            <h2>Tools You Need</h2>
+            <p>You need these for building. Most available in hardware stores or Lazada/Shopee.</p>
+            
+            <h3>Essential Tools</h3>
+            <ul>
+                <li><strong>Soldering Iron (60W minimum):</strong> PHP 300-1,500 - For connecting wires</li>
+                <li><strong>Solder Wire (60/40 or 63/37):</strong> PHP 100-300 - Leaded solder works better</li>
+                <li><strong>Wire Cutters:</strong> PHP 100-300 - For cutting wires</li>
+                <li><strong>Wire Strippers:</strong> PHP 150-400 - Removes insulation</li>
+                <li><strong>Hex Drivers (1.5mm, 2.0mm, 2.5mm):</strong> PHP 200-500 set - For screws</li>
+                <li><strong>Multimeter:</strong> PHP 200-800 - Check connections and voltage</li>
+                <li><strong>Helping Hands:</strong> PHP 150-400 - Holds parts while soldering</li>
+                <li><strong>Heat Gun or Lighter:</strong> PHP 200-800 - Shrink heat shrink tubing</li>
+                <li><strong>Tweezers:</strong> PHP 50-200 - Handle small parts</li>
+                <li><strong>Needle Nose Pliers:</strong> PHP 100-300 - Bend and hold wires</li>
+            </ul>
+            
+            <h3>Nice to Have</h3>
+            <ul>
+                <li>Soldering Station with temperature control: PHP 1,500-3,000</li>
+                <li>Solder Sucker or Wick: PHP 50-200 - Fix mistakes</li>
+                <li>Flux: PHP 100-300 - Makes soldering easier</li>
+                <li>Isopropyl Alcohol 99%: PHP 100-200 - Clean flux residue</li>
+                <li>Blue Loctite: PHP 150-300 - Prevents screws from loosening</li>
+            </ul>
+        </div>
+        
+        <div class="section">
+            <h2>What Else You Need to Fly</h2>
+            <p>The drone alone cannot fly. You need controller and goggles.</p>
+            
+            <div class="part-box">
+                <h3>Radio Transmitter (Controller)</h3>
+                <p>How you control the drone. This is separate from the drone.</p>
+                <p><strong>Budget Options:</strong></p>
+                <ul>
+                    <li>FlySky FS-i6X: <span class="price">PHP 2,500-3,500</span> - Good for beginners</li>
+                    <li>Radiomaster Zorro: <span class="price">PHP 4,500-6,000</span> - Compact, good value</li>
+                </ul>
+                <p><strong>Popular Mid-Range:</strong></p>
+                <ul>
+                    <li>Radiomaster TX16S: <span class="price">PHP 7,000-9,000</span> - Best value</li>
+                    <li>FrSky X9D Plus: <span class="price">PHP 8,000-10,000</span></li>
+                </ul>
+                <p><strong>Make sure receiver matches transmitter protocol!</strong></p>
+                <div class="image-placeholder">Radio Controller: Handheld device with two joysticks</div>
+            </div>
+            
+            <div class="part-box">
+                <h3>FPV Goggles</h3>
+                <p>See what the drone sees. Expensive but necessary for FPV flying.</p>
+                <p><strong>Budget:</strong></p>
+                <ul>
+                    <li>Eachine EV100: <span class="price">PHP 3,500-5,000</span></li>
+                    <li>Skyzone SKY02X: <span class="price">PHP 6,000-8,000</span></li>
+                </ul>
+                <p><strong>Mid-Range:</strong></p>
+                <ul>
+                    <li>Eachine EV300D: <span class="price">PHP 8,000-11,000</span></li>
+                    <li>Skyzone Cobra X: <span class="price">PHP 12,000-15,000</span></li>
+                </ul>
+                <p><strong>High-End:</strong></p>
+                <ul>
+                    <li>DJI FPV Goggles V2: <span class="price">PHP 25,000-30,000</span></li>
+                    <li>Fat Shark HDO2: <span class="price">PHP 22,000-28,000</span></li>
+                </ul>
+                <div class="image-placeholder">FPV Goggles: Headset with screens for each eye</div>
+            </div>
+            
+            <div class="part-box">
+                <h3>Battery Charger</h3>
+                <p>Must have to charge LiPo batteries. NEVER use regular charger.</p>
+                <p><strong>Requirements:</strong></p>
+                <ul>
+                    <li>LiPo balance charger</li>
+                    <li>50W minimum for 4S</li>
+                    <li>Must support 4S-6S batteries</li>
+                </ul>
+                <p><strong>Options:</strong></p>
+                <ul>
+                    <li>IMAX B6: <span class="price">PHP 800-1,500</span> - Basic, slow</li>
+                    <li>SkyRC B6neo: <span class="price">PHP 1,800-2,500</span> - Good for beginners</li>
+                    <li>ISDT Q6 Pro: <span class="price">PHP 2,500-3,500</span> - Fast charging</li>
+                    <li>ToolkitRC M6D: <span class="price">PHP 3,000-4,500</span> - Dual channel</li>
+                </ul>
+                <p><strong>You also need:</strong> XT60 charging cables, balance board (if charging multiple)</p>
+                <div class="image-placeholder">Battery Charger: Device with screen and cables</div>
+            </div>
+        </div>
+        
+        <div class="section" id="build">
+            <h2>Building Your Drone Step by Step</h2>
+            <p>Follow these steps carefully. Take your time, especially with soldering.</p>
+            
+            <div class="warning">
+                <strong>Before You Start:</strong><br>
+                - Work in well-ventilated area<br>
+                - Watch YouTube build tutorials for your specific frame<br>
+                - Test continuity with multimeter after each solder<br>
+                - Take photos at each step for reference<br>
+                - Never plug in battery until all checks done
+            </div>
+            
+            <div class="step">
+                <span class="step-number">1</span>
+                <strong>Prepare the Frame</strong>
+                <p>Unpack frame and organize all screws and standoffs. Clean carbon fiber with alcohol to remove dust. Install standoffs on bottom plate using screws.</p>
+            </div>
+            
+            <div class="step">
+                <span class="step-number">2</span>
+                <strong>Mount the Motors</strong>
+                <p>Install motors on each arm using screws provided. Motor screws go from bottom up. Check motor direction - CW motors on diagonal corners, CCW on other diagonal. Tighten screws in star pattern.</p>
+            </div>
+            
+            <div class="step">
+                <span class="step-number">3</span>
+                <strong>Prepare ESCs</strong>
+                <p>If using 4-in-1 ESC: Mount on standoffs above motors. If using individual ESCs: Mount one on each arm near motor. Leave motor wires long for now.</p>
+            </div>
+            
+            <div class="step">
+                <span class="step-number">4</span>
+                <strong>Solder Motors to ESCs</strong>
+                <p>Cut motor wires to appropriate length (not too short). Strip about 3mm insulation. Tin motor wires and ESC pads with solder. Solder motor wires to ESC pads. Any order is fine, you will swap later if motor spins wrong direction.</p>
+                <div class="tip">
+                    <strong>Soldering Tips:</strong><br>
+                    - Heat the pad and wire together<br>
+                    - Apply solder to joint, not iron tip<br>
+                    - Joint should be shiny when done<br>
+                    - Use enough solder but not too much<br>
+                    - Each joint takes 2-3 seconds
+                </div>
+            </div>
+            
+            <div class="step">
+                <span class="step-number">5</span>
+                <strong>Install Power Distribution</strong>
+                <p>If ESC has PDB built-in: Skip this step. If not: Mount PDB on standoffs. Solder ESC power wires (red and black) to PDB pads. Keep wires organized.</p>
+            </div>
+            
+            <div class="step">
+                <span class="step-number">6</span>
+                <strong>Install Flight Controller</strong>
+                <p>Mount FC on top of ESC using soft rubber standoffs (dampens vibration). Align arrow on FC with front of drone. Connect FC to ESC using ribbon cable or wires depending on your stack.</p>
+            </div>
+            
+            <div class="step">
+                <span class="step-number">7</span>
+                <strong>Solder XT60 Battery Connector</strong>
+                <p>Solder XT60 male connector to battery power wires from ESC or PDB. Red wire to positive, black to negative. Slide heat shrink over before soldering. Solder capacitor across XT60 pads (watch polarity - negative stripe to negative).</p>
+                <div class="warning">
+                    <strong>Never short positive and negative together! This will spark and damage components.</strong>
+                </div>
+            </div>
+            
+            <div class="step">
+                <span class="step-number">8</span>
+                <strong>Install VTX and Camera</strong>
+                <p>Mount camera on front using camera mount. Connect camera to VTX using camera cable. Mount VTX on stack or on side of frame. Connect VTX to FC for smart audio (optional). Solder VTX power to 9V or 12V pad on FC or PDB.</p>
+            </div>
+            
+            <div class="step">
+                <span class="step-number">9</span>
+                <strong>Install Receiver</strong>
+                <p>Mount receiver on frame with double-sided tape or zip tie. Connect receiver to FC using SBUS or CRSF protocol. Check pinout diagram for FC and RX. Usually: RX signal to FC TX pad, RX ground to FC ground, RX power to 5V pad.</p>
+            </div>
+            
+            <div class="step">
+                <span class="step-number">10</span>
+                <strong>Antenna Installation</strong>
+                <p>Attach antennas to VTX. Use zip ties to mount antennas vertically or in V shape on back arms. Keep antennas away from carbon fiber and metal. Antennas should be at angle for better reception.</p>
+            </div>
+            
+            <div class="step">
+                <span class="step-number">11</span>
+                <strong>Cable Management</strong>
+                <p>Use zip ties to secure all wires. Keep wires away from propellers. Route wires neatly along arms. Cut excess zip tie length. Apply heat shrink to any exposed solder joints.</p>
+            </div>
+            
+            <div class="step">
+                <span class="step-number">12</span>
+                <strong>Final Assembly</strong>
+                <p>Install top plate. Attach battery strap. Check all screws are tight (use Loctite on motor screws). Install propellers (check rotation direction). Make sure nothing is touching that should not be touching.</p>
+            </div>
+            
+            <div class="step">
+                <span class="step-number">13</span>
+                <strong>Pre-Flight Checks</strong>
+                <p>Visual inspection of all solder joints. Check for shorts using multimeter (test positive to negative - should read open circuit). Check motor screws are tight. Verify propellers are on correct motors and right way up. Test VTX has signal before connecting battery.</p>
+            </div>
+        </div>
+        
+        <div class="section" id="setup">
+            <h2>Software Setup and Configuration</h2>
+            <p>Now you need to configure the flight controller using computer.</p>
+            
+            <h3>What You Need</h3>
+            <ul>
+                <li>Computer (Windows, Mac, or Linux)</li>
+                <li>USB cable (micro USB or USB-C depending on FC)</li>
+                <li>Betaflight Configurator (download from betaflight.com)</li>
+            </ul>
+            
+            <div class="step">
+                <span class="step-number">1</span>
+                <strong>Install Betaflight Configurator</strong>
+                <p>Download from betaflight.com. Install on your computer. Open the program.</p>
+            </div>
+            
+            <div class="step">
+                <span class="step-number">2</span>
+                <strong>Connect FC to Computer</strong>
+                <p>Connect FC to computer using USB cable. Do NOT connect battery yet. Select the correct COM port in Betaflight. Click Connect button.</p>
+            </div>
+            
+            <div class="step">
+                <span class="step-number">3</span>
+                <strong>Flash Firmware (if needed)</strong>
+                <p>Go to Firmware Flasher tab. Select your FC board type. Select latest stable Betaflight version. Click Load Firmware Online then Flash Firmware. Wait for completion.</p>
+            </div>
+            
+            <div class="step">
+                <span class="step-number">4</span>
+                <strong>Configure Ports</strong>
+                <p>Go to Ports tab. Enable Serial RX on the UART where your receiver is connected. Set protocol to match your receiver (SBUS, CRSF, etc). Save and Reboot.</p>
+            </div>
+            
+            <div class="step">
+                <span class="step-number">5</span>
+                <strong>Configuration Tab</strong>
+                <p>Set mixer type to Quad X. Enable Motor Stop (for safety). Set minimum throttle. Enable Air Mode. Set up battery monitoring (cells, voltage). Save settings.</p>
+            </div>
+            
+            <div class="step">
+                <span class="step-number">6</span>
+                <strong>Configure Receiver</strong>
+                <p>Go to Receiver tab. Power transmitter ON and bind to receiver following receiver instructions. Check channel map matches your transmitter. Adjust endpoints if needed. Test all sticks and switches work.</p>
+            </div>
+            
+            <div class="step">
+                <span class="step-number">7</span>
+                <strong>Setup Modes</strong>
+                <p>Go to Modes tab. Assign ARM switch (usually 3-position switch). Setup flight modes: Angle mode for beginners, Horizon for learning, Acro for full control. Setup Beeper for lost model. Save settings.</p>
+            </div>
+            
+            <div class="step">
+                <span class="step-number">8</span>
+                <strong>Motor Direction and Order</strong>
+                <p>Go to Motors tab. Read warnings and check propellers are OFF. Connect battery (be careful). Test motors at low throttle one by one. Check they spin correct direction. If wrong, swap any 2 motor wires. Motors should be: Front Right = Motor 1, Back Right = Motor 2, Back Left = Motor 3, Front Left = Motor 4.</p>
+            </div>
+            
+            <div class="step">
+                <span class="step-number">9</span>
+                <strong>PID Tuning (Basic)</strong>
+                <p>Go to PID Tuning tab. For first flight, use default PIDs. After test flight, adjust if drone wobbles or feels loose. Increase P gains if too soft. Decrease if oscillating. This takes practice.</p>
+            </div>
+            
+            <div class="step">
+                <span class="step-number">10</span>
+                <strong>OSD Setup (Optional)</strong>
+                <p>Go to OSD tab. Enable on-screen display elements you want: battery voltage, timer, RSSI, altitude. Position elements on screen. Save settings.</p>
+            </div>
+            
+            <div class="tip">
+                <strong>Save Your Settings:</strong> Go to CLI tab, type "dump all", copy all text and save to file. This backs up your configuration.
+            </div>
+        </div>
+        
+        <div class="section" id="fly">
+            <h2>Learning to Fly</h2>
+            <p>Do not rush. Flying FPV drone takes practice. Start slow and safe.</p>
+            
+            <h3>Before First Flight</h3>
+            <div class="warning">
+                <strong>Safety First:</strong><br>
+                - Fly in open area away from people<br>
+                - Check weather - no rain or strong wind<br>
+                - Inform people nearby you are flying<br>
+                - Have fire extinguisher for battery fire<br>
+                - Wear safety glasses<br>
+                - Never fly near airport or government buildings
+            </div>
+            
+            <h3>Pre-Flight Checklist</h3>
+            <ul>
+                <li>Check all screws tight</li>
+                <li>Propellers installed correctly (check direction and tightness)</li>
+                <li>Battery fully charged and not puffed</li>
+                <li>Camera angle adjusted properly</li>
+                <li>VTX has good video signal in goggles</li>
+                <li>Controller batteries fresh</li>
+                <li>Receiver connected and responding</li>
+                <li>GPS has good satellite lock (if applicable)</li>
+                <li>Clear flying area of obstacles</li>
+            </ul>
+            
+            <h3>Flight Mode Explanation</h3>
+            <div class="part-box">
+                <h3>Angle Mode (Stabilized)</h3>
+                <p>Drone self-levels when you release sticks. Best for beginners. Cannot flip or do acrobatics. Drone will not go upside down.</p>
+            </div>
+            
+            <div class="part-box">
+                <h3>Horizon Mode</h3>
+                <p>Self-levels at center stick but allows flips at full stick. Good for learning acro gradually.</p>
+            </div>
+            
+            <div class="part-box">
+                <h3>Acro Mode (Rate/Manual)</h3>
+                <p>No self-leveling. Full manual control. This is what racing pilots use. Most difficult but most control. Start in Angle mode first.</p>
+            </div>
+            
+            <h3>First Flight Steps</h3>
+            <div class="step">
+                <span class="step-number">1</span>
+                <strong>Setup and Power On</strong>
+                <p>Place drone in open grass field. Connect battery. Wait for flight controller to initialize (usually 5-10 seconds). Put on goggles and verify video feed.</p>
+            </div>
+            
+            <div class="step">
+                <span class="step-number">2</span>
+                <strong>Arm the Drone</strong>
+                <p>Check transmitter switches are correct. Flip ARM switch. Propellers should start spinning slowly. If not arming, check Betaflight for error messages.</p>
+            </div>
+            
+            <div class="step">
+                <span class="step-number">3</span>
+                <strong>Hover Practice</strong>
+                <p>In Angle mode, slowly increase throttle to 50%. Drone should lift off ground. Practice holding steady hover at knee height. Use small stick movements. Practice for 10 minutes before moving around.</p>
+            </div>
+            
+            <div class="step">
+                <span class="step-number">4</span>
+                <strong>Forward/Backward/Sides</strong>
+                <p>Once hovering is stable, practice moving forward slowly then back. Then left and right. Keep movements small and controlled. Practice figure-8 patterns.</p>
+            </div>
+            
+            <div class="step">
+                <span class="step-number">5</span>
+                <strong>Landing</strong>
+                <p>Reduce throttle slowly until drone touches ground gently. Disarm immediately. Do not leave armed on ground.</p>
+            </div>
+            
+            <h3>Learning Progression</h3>
+            <p><strong>Week 1-2:</strong> Master hovering and basic movements in Angle mode</p>
+            <p><strong>Week 3-4:</strong> Practice flying boxes, figure-8, and orientation flying</p>
+            <p><strong>Week 5-6:</strong> Try Horizon mode, practice flips at high altitude</p>
+            <p><strong>Week 7+:</strong> Gradually transition to Acro mode, start with hovering again</p>
+            
+            <div class="tip">
+                <strong>Simulator Practice:</strong> Use Liftoff, DRL Simulator, or Velocidrone on PC to practice before real flying. Connect your transmitter to computer. This saves money on crashes.
+            </div>
+            
+            <h3>Common Problems and Solutions</h3>
+            <table>
+                <tr>
+                    <th>Problem</th>
+                    <th>Solution</th>
+                </tr>
+                <tr>
+                    <td>Drone flips on takeoff</td>
+                    <td>Motor direction or propeller wrong. Check motor order.</td>
+                </tr>
+                <tr>
+                    <td>Oscillation/wobbling</td>
+                    <td>PIDs too high or props damaged. Lower P gains or replace props.</td>
+                </tr>
+                <tr>
+                    <td>Drifting in Angle mode</td>
+                    <td>Accelerometer not calibrated. Calibrate in Betaflight.</td>
+                </tr>
+                <tr>
+                    <td>Weak punch out</td>
+                    <td>Battery weak or ESC/motor issue. Check connections.</td>
+                </tr>
+                <tr>
+                    <td>Video static or loss</td>
+                    <td>Antenna damaged or VTX too hot. Check antennas and airflow.</td>
+                </tr>
+                <tr>
+                    <td>Won't arm</td>
+                    <td>Check Betaflight error messages. Common: no RC signal, gyro not calibrated.</td>
+                </tr>
+            </table>
+        </div>
+        
+        <div class="section" id="legal">
+            <h2>Philippines Drone Laws and Regulations</h2>
+            <p>You must follow CAAP (Civil Aviation Authority of the Philippines) rules.</p>
+            
+            <h3>Drone Registration (Required)</h3>
+            <p>All drones must be registered with CAAP if:</p>
+            <ul>
+                <li>Weight more than 7 kg - Need RPA Certificate</li>
+                <li>Used for commercial purposes - Need operator permit</li>
+                <li>Recreational use under 7kg - Still register online</li>
+            </ul>
+            <p><strong>Register at:</strong> CAAP website or office</p>
+            <p><strong>Cost:</strong> Around PHP 300-500 for recreational</p>
+            
+            <h3>Flying Rules in Philippines</h3>
+            <div class="warning">
+                <strong>Strictly Prohibited:</strong><br>
+                - Within 10km of any airport<br>
+                - Over crowds or public events<br>
+                - Near Malacanang or government buildings<br>
+                - Military installations or bases<br>
+                - Over 400 feet altitude<br>
+                - At night without special lights<br>
+                - When visibility is poor
+            </div>
+            
+            <h3>Where You Can Fly</h3>
+            <ul>
+                <li>Open fields away from people</li>
+                <li>Private property with permission</li>
+                <li>Designated FPV flying spots</li>
+                <li>Parks (check local rules first)</li>
+                <li>Beaches during non-peak hours</li>
+            </ul>
+            
+            <h3>Popular Flying Spots in Metro Manila</h3>
+            <ul>
+                <li>Nuvali (Laguna) - Has designated area</li>
+                <li>Clark Freeport Zone (Pampanga) - Open areas</li>
+                <li>Various provincial open fields</li>
+                <li>Check Facebook groups for community flying locations</li>
+            </ul>
+            
+            <h3>Insurance</h3>
+            <p>Get liability insurance if possible. Protects you if drone causes damage or injury. Some insurance companies now offer drone coverage.</p>
+            
+            <h3>Respect and Community</h3>
+            <ul>
+                <li>Always ask permission on private property</li>
+                <li>Do not fly over people's houses</li>
+                <li>Join local FPV groups on Facebook</li>
+                <li>Share flying spots responsibly</li>
+                <li>Pick up crashed drone parts</li>
+                <li>Be courteous to other pilots</li>
+            </ul>
+            
+            <div class="tip">
+                <strong>Facebook Groups:</strong><br>
+                - FPV Pilots Philippines<br>
+                - Philippine Multirotor Society<br>
+                - RC Drones Philippines<br>
+                Join these for tips, flying spots, and local deals
+            </div>
+        </div>
+        
+        <div class="section">
+            <h2>Maintenance and Care</h2>
+            
+            <h3>After Every Flight</h3>
+            <ul>
+                <li>Check for loose screws</li>
+                <li>Inspect propellers for cracks</li>
+                <li>Clean dirt from motors and frame</li>
+                <li>Check battery voltage and condition</li>
+                <li>Store batteries at storage voltage (3.8V per cell)</li>
+            </ul>
+            
+            <h3>Monthly Maintenance</h3>
+            <ul>
+                <li>Tighten all screws (use Loctite)</li>
+                <li>Check solder joints for cracks</li>
+                <li>Clean camera lens</li>
+                <li>Check antenna connections</li>
+                <li>Update firmware if available</li>
+                <li>Backup Betaflight settings</li>
+            </ul>
+            
+            <h3>Battery Care</h3>
+            <div class="warning">
+                <strong>Critical Battery Rules:</strong><br>
+                - Never discharge below 3.5V per cell<br>
+                - Store at 3.8V per cell (storage charge)<br>
+                - Charge in fireproof bag or container<br>
+                - Never leave charging unattended<br>
+                - Check for puffing before each use<br>
+                - Dispose properly at electronic waste center if damaged
+            </div>
+            
+            <h3>Crash Recovery</h3>
+            <p><strong>After a crash:</strong></p>
+            <ol>
+                <li>Disarm immediately if still armed</li>
+                <li>Disconnect battery</li>
+                <li>Check for broken propellers (replace)</li>
+                <li>Check motor screws tight</li>
+                <li>Test each motor spins freely by hand</li>
+                <li>Check camera and VTX not damaged</li>
+                <li>Check for loose wires</li>
+                <li>Test hover before flying normally</li>
+            </ol>
+        </div>
+        
+        <div class="section">
+            <h2>Buying Guide in Philippines</h2>
+            
+            <h3>Physical Stores</h3>
+            <p><strong>Metro Manila:</strong></p>
+            <ul>
+                <li>Greenhills Shopping Center - Multiple hobby shops</li>
+                <li>Gilmore IT Center - Electronics and drone parts</li>
+                <li>Various hobby shops in malls</li>
+            </ul>
+            
+            <p><strong>Cebu:</strong> Check SM or Ayala malls for hobby shops</p>
+            <p><strong>Davao:</strong> Limited local options, mostly online</p>
+            
+            <h3>Online Stores</h3>
+            <ul>
+                <li><strong>Lazada/Shopee:</strong> Cheap but quality varies, read reviews carefully</li>
+                <li><strong>Banggood:</strong> Ships to PH, 2-4 weeks delivery, good prices</li>
+                <li><strong>AliExpress:</strong> Cheapest but slowest (1-2 months)</li>
+                <li><strong>GetFPV/RaceDayQuads:</strong> US stores, expensive shipping but good quality</li>
+            </ul>
+            
+            <h3>What to Buy Local vs Online</h3>
+            <p><strong>Buy Local (if possible):</strong></p>
+            <ul>
+                <li>Batteries (safer shipping)</li>
+                <li>Props (cheap, buy bulk)</li>
+                <li>Tools and supplies</li>
+            </ul>
+            
+            <p><strong>Buy Online:</strong></p>
+            <ul>
+                <li>Frame (lighter, cheaper shipping)</li>
+                <li>Motors, ESC, FC (good prices)</li>
+                <li>Camera and VTX</li>
+                <li>Receiver</li>
+            </ul>
+            
+            <div class="tip">
+                <strong>Money Saving Tips:</strong><br>
+                - Buy Chinese brands (Emax, Mamba, iFlight) - Good quality, lower price<br>
+                - Group buy with other pilots to save on shipping<br>
+                - Buy props in bulk (10+ sets)<br>
+                - Wait for Lazada/Shopee sales<br>
+                - Join local FPV groups for secondhand deals
+            </div>
+        </div>
+        
+        <div class="section">
+            <h2>Final Tips for Success</h2>
+            
+            <h3>For Beginners</h3>
+            <ul>
+                <li>Start with simulator before real flying</li>
+                <li>Buy extra props - you will crash many times</li>
+                <li>Join Facebook groups for help and advice</li>
+                <li>Watch YouTube tutorials from Joshua Bardwell, UAVFutures, Mr. Steele</li>
+                <li>Practice patience - learning FPV takes months</li>
+                <li>Consider buying cheap ready-to-fly first to learn</li>
+            </ul>
+            
+            <h3>Budget Planning</h3>
+            <p><strong>Minimum to Start Flying:</strong></p>
+            <ul>
+                <li>Drone build: PHP 12,000</li>
+                <li>Controller: PHP 4,000</li>
+                <li>Goggles: PHP 5,000</li>
+                <li>Charger: PHP 2,000</li>
+                <li>Extra batteries (3x): PHP 4,000</li>
+                <li>Props and spares: PHP 1,000</li>
+                <li><strong>Total: PHP 28,000 minimum</strong></li>
+            </ul>
+            
+            <h3>Common Beginner Mistakes</h3>
+            <ul>
+                <li>Flying too far on first flight (you will lose it)</li>
+                <li>Not checking battery voltage before flight</li>
+                <li>Forgetting to remove props when testing motors</li>
+                <li>Flying in Acro mode too early</li>
+                <li>Not backing up Betaflight settings</li>
+                <li>Cheaping out on batteries (they catch fire)</li>
+                <li>Flying without proper registration</li>
+            </ul>
+            
+            <h3>Next Steps After Building</h3>
+            <ol>
+                <li>Practice in simulator for 10-20 hours</li>
+                <li>Join local FPV group and meet other pilots</li>
+                <li>Attend local race or freestyle event (just watch)</li>
+                <li>Learn basic repairs and soldering</li>
+                <li>Build second drone (you will crash first one)</li>
+                <li>Consider GoPro for recording footage</li>
+                <li>Learn video editing for sharing flights</li>
+            </ol>
+            
+            <div class="tip">
+                <strong>Remember:</strong> Every FPV pilot crashes. A lot. It's part of learning. Don't get discouraged. The community is friendly and helpful. Ask questions, practice safely, and have fun!
+            </div>
+        </div>
+        
+        <div class="section">
+            <h2>Quick Reference Checklists</h2>
+            
+            <div class="part-box">
+                <h3>Shopping List Checklist</h3>
+                <label style="display: block; margin: 5px 0;"><input type="checkbox"> Frame (5 inch)</label>
+                <label style="display: block; margin: 5px 0;"><input type="checkbox"> Motors 2205-2306 (4 pieces)</label>
+                <label style="display: block; margin: 5px 0;"><input type="checkbox"> ESC 30-35A (4-in-1 or individual)</label>
+                <label style="display: block; margin: 5px 0;"><input type="checkbox"> Flight Controller F4/F7</label>
+                <label style="display: block; margin: 5px 0;"><input type="checkbox"> Radio Receiver</label>
+                <label style="display: block; margin: 5px 0;"><input type="checkbox"> FPV Camera</label>
+                <label style="display: block; margin: 5px 0;"><input type="checkbox"> Video Transmitter VTX</label>
+                <label style="display: block; margin: 5px 0;"><input type="checkbox"> VTX Antennas (2)</label>
+                <label style="display: block; margin: 5px 0;"><input type="checkbox"> LiPo Batteries 4S (3-5 pieces)</label>
+                <label style="display: block; margin: 5px 0;"><input type="checkbox"> Propellers (10+ sets)</label>
+                <label style="display: block; margin: 5px 0;"><input type="checkbox"> XT60 Connectors</label>
+                <label style="display: block; margin: 5px 0;"><input type="checkbox"> Capacitor 35V 1000uF</label>
+                <label style="display: block; margin: 5px 0;"><input type="checkbox"> Battery Charger</label>
+                <label style="display: block; margin: 5px 0;"><input type="checkbox"> Radio Transmitter</label>
+                <label style="display: block; margin: 5px 0;"><input type="checkbox"> FPV Goggles</label>
+                <label style="display: block; margin: 5px 0;"><input type="checkbox"> Soldering Iron 60W+</label>
+                <label style="display: block; margin: 5px 0;"><input type="checkbox"> Solder Wire</label>
+                <label style="display: block; margin: 5px 0;"><input type="checkbox"> Wire Cutters & Strippers</label>
+                <label style="display: block; margin: 5px 0;"><input type="checkbox"> Hex Drivers Set</label>
+                <label style="display: block; margin: 5px 0;"><input type="checkbox"> Heat Shrink Tubing</label>
+                <label style="display: block; margin: 5px 0;"><input type="checkbox"> Zip Ties & Velcro</label>
+            </div>
+            
+            <div class="part-box">
+                <h3>Pre-Flight Checklist</h3>
+                <label style="display: block; margin: 5px 0;"><input type="checkbox"> Battery fully charged</label>
+                <label style="display: block; margin: 5px 0;"><input type="checkbox"> Battery not puffed or damaged</label>
+                <label style="display: block; margin: 5px 0;"><input type="checkbox"> All screws tight</label>
+                <label style="display: block; margin: 5px 0;"><input type="checkbox"> Props installed correctly</label>
+                <label style="display: block; margin: 5px 0;"><input type="checkbox"> Props tight on motors</label>
+                <label style="display: block; margin: 5px 0;"><input type="checkbox"> Camera angle adjusted</label>
+                <label style="display: block; margin: 5px 0;"><input type="checkbox"> VTX antennas connected</label>
+                <label style="display: block; margin: 5px 0;"><input type="checkbox"> Video signal good in goggles</label>
+                <label style="display: block; margin: 5px 0;"><input type="checkbox"> Controller batteries fresh</label>
+                <label style="display: block; margin: 5px 0;"><input type="checkbox"> Receiver responding</label>
+                <label style="display: block; margin: 5px 0;"><input type="checkbox"> Flying area clear</label>
+                <label style="display: block; margin: 5px 0;"><input type="checkbox"> Weather conditions good</label>
+                <label style="display: block; margin: 5px 0;"><input type="checkbox"> No people nearby</label>
+            </div>
+        </div>
+        
+        <div class="section">
+            <h2>Budget Calculator</h2>
+            <div style="background: #f8f9fa; padding: 15px; border-radius: 8px;">
+                <h3>Calculate Your Build Cost</h3>
+                
+                <div style="margin: 10px 0;">
+                    <label style="display: block; margin-bottom: 5px;">Frame:</label>
+                    <input type="number" id="frame" value="1500" style="width: 100%; padding: 8px; border: 1px solid #ddd; border-radius: 4px;">
+                </div>
+                
+                <div style="margin: 10px 0;">
+                    <label style="display: block; margin-bottom: 5px;">Motors (x4):</label>
+                    <input type="number" id="motors" value="3200" style="width: 100%; padding: 8px; border: 1px solid #ddd; border-radius: 4px;">
+                </div>
+                
+                <div style="margin: 10px 0;">
+                    <label style="display: block; margin-bottom: 5px;">ESC (4-in-1):</label>
+                    <input type="number" id="esc" value="2500" style="width: 100%; padding: 8px; border: 1px solid #ddd; border-radius: 4px;">
+                </div>
+                
+                <div style="margin: 10px 0;">
+                    <label style="display: block; margin-bottom: 5px;">Flight Controller:</label>
+                    <input type="number" id="fc" value="2000" style="width: 100%; padding: 8px; border: 1px solid #ddd; border-radius: 4px;">
+                </div>
+                
+                <div style="margin: 10px 0;">
+                    <label style="display: block; margin-bottom: 5px;">Receiver:</label>
+                    <input type="number" id="rx" value="1500" style="width: 100%; padding: 8px; border: 1px solid #ddd; border-radius: 4px;">
+                </div>
+                
+                <div style="margin: 10px 0;">
+                    <label style="display: block; margin-bottom: 5px;">FPV Camera:</label>
+                    <input type="number" id="camera" value="1800" style="width: 100%; padding: 8px; border: 1px solid #ddd; border-radius: 4px;">
+                </div>
+                
+                <div style="margin: 10px 0;">
+                    <label style="display: block; margin-bottom: 5px;">VTX:</label>
+                    <input type="number" id="vtx" value="1200" style="width: 100%; padding: 8px; border: 1px solid #ddd; border-radius: 4px;">
+                </div>
+                
+                <div style="margin: 10px 0;">
+                    <label style="display: block; margin-bottom: 5px;">Batteries (x3):</label>
+                    <input type="number" id="batteries" value="4500" style="width: 100%; padding: 8px; border: 1px solid #ddd; border-radius: 4px;">
+                </div>
+                
+                <div style="margin: 10px 0;">
+                    <label style="display: block; margin-bottom: 5px;">Props & Misc Parts:</label>
+                    <input type="number" id="misc" value="800" style="width: 100%; padding: 8px; border: 1px solid #ddd; border-radius: 4px;">
+                </div>
+                
+                <div style="margin: 10px 0;">
+                    <label style="display: block; margin-bottom: 5px;">Tools:</label>
+                    <input type="number" id="tools" value="2000" style="width: 100%; padding: 8px; border: 1px solid #ddd; border-radius: 4px;">
+                </div>
+                
+                <div style="margin: 10px 0;">
+                    <label style="display: block; margin-bottom: 5px;">Radio Transmitter:</label>
+                    <input type="number" id="transmitter" value="5000" style="width: 100%; padding: 8px; border: 1px solid #ddd; border-radius: 4px;">
+                </div>
+                
+                <div style="margin: 10px 0;">
+                    <label style="display: block; margin-bottom: 5px;">FPV Goggles:</label>
+                    <input type="number" id="goggles" value="6000" style="width: 100%; padding: 8px; border: 1px solid #ddd; border-radius: 4px;">
+                </div>
+                
+                <div style="margin: 10px 0;">
+                    <label style="display: block; margin-bottom: 5px;">Battery Charger:</label>
+                    <input type="number" id="charger" value="2000" style="width: 100%; padding: 8px; border: 1px solid #ddd; border-radius: 4px;">
+                </div>
+                
+                <button onclick="calculateTotal()" style="width: 100%; padding: 12px; background: #007bff; color: white; border: none; border-radius: 4px; font-size: 16px; font-weight: bold; margin-top: 10px;">Calculate Total</button>
+                
+                <div id="total" style="margin-top: 15px; padding: 15px; background: #27ae60; color: white; border-radius: 4px; text-align: center; font-size: 18px; font-weight: bold; display: none;">
+                    Total: PHP <span id="totalAmount">0</span>
+                </div>
+            </div>
+        </div>
+        
+        <div class="section">
+            <h2>Troubleshooting Flowchart</h2>
+            
+            <div class="part-box">
+                <h3>Drone Won't Arm</h3>
+                <p><strong>Check in this order:</strong></p>
+                <ol>
+                    <li>Is transmitter ON and bound? → Check transmitter power and binding</li>
+                    <li>Does Betaflight show RC signal? → Check receiver connection and wiring</li>
+                    <li>Check Betaflight error messages → Fix specific error shown</li>
+                    <li>Is gyro calibrated? → Calibrate accelerometer in Betaflight</li>
+                    <li>Is ARM switch correct? → Check Modes tab in Betaflight</li>
+                </ol>
+            </div>
+            
+            <div class="part-box">
+                <h3>Drone Flips on Takeoff</h3>
+                <p><strong>Check in this order:</strong></p>
+                <ol>
+                    <li>Check motor order (1-4 correct positions)</li>
+                    <li>Check motor directions (CW vs CCW)</li>
+                    <li>Check propeller direction (look for arrows on props)</li>
+                    <li>Check props are on correct motors</li>
+                </ol>
+            </div>
+            
+            <div class="part-box">
+                <h3>Video Feed Problems</h3>
+                <p><strong>Check in this order:</strong></p>
+                <ol>
+                    <li>Is VTX antenna connected? → Connect antenna</li>
+                    <li>Is VTX powered? → Check voltage on VTX pad</li>
+                    <li>Is camera connected? → Check camera cable</li>
+                    <li>Wrong channel/band? → Match VTX and goggles frequency</li>
+                    <li>Antennas damaged? → Replace antennas</li>
+                </ol>
+            </div>
+        </div>
+        
+        <div class="section">
+            <h2>Upgrade Path Guide</h2>
+            
+            <h3>What to Upgrade First</h3>
+            
+            <div class="step">
+                <span class="step-number">1</span>
+                <strong>More Batteries (First Priority)</strong>
+                <p>Buy 2-3 more batteries before anything else. More flight time = more practice = better pilot. Cost: PHP 3,000-6,000</p>
+            </div>
+            
+            <div class="step">
+                <span class="step-number">2</span>
+                <strong>Better Props</strong>
+                <p>Upgrade to premium props like Gemfan Hurricane or HQ Ethix. Better performance and durability. Cost: PHP 300-500 per set</p>
+            </div>
+            
+            <div class="step">
+                <span class="step-number">3</span>
+                <strong>Action Camera (GoPro/Insta360)</strong>
+                <p>Record your flights in HD. GoPro Hero 8+ or Insta360 GO 2. Cost: PHP 15,000-25,000</p>
+            </div>
+            
+            <div class="step">
+                <span class="step-number">4</span>
+                <strong>Better Goggles</strong>
+                <p>If you started with budget goggles, upgrade to better screens and receivers. DJI system or Fat Shark. Cost: PHP 20,000-30,000</p>
+            </div>
+            
+            <div class="step">
+                <span class="step-number">5</span>
+                <strong>Long Range System</strong>
+                <p>ExpressLRS or TBS Crossfire for flying further. Cost: PHP 3,000-8,000</p>
+            </div>
+            
+            <div class="step">
+                <span class="step-number">6</span>
+                <strong>Build Second Drone</strong>
+                <p>Different style (racing vs freestyle vs long range). Have backup when one crashes. Cost: PHP 12,000-20,000</p>
+            </div>
+        </div>
+        
+        <div class="section">
+            <h2>Local Resources</h2>
+            
+            <h3>Facebook Groups (Most Active)</h3>
+            <ul>
+                <li><strong>FPV Pilots Philippines</strong> - Largest FPV community</li>
+                <li><strong>Philippine Multirotor Society</strong> - General drone discussions</li>
+                <li><strong>RC Drones Philippines</strong> - Buy/sell/trade</li>
+                <li><strong>Drone Racing Philippines</strong> - Racing focused</li>
+                <li><strong>FPV Freestyle Philippines</strong> - Freestyle tricks</li>
+            </ul>
+            
+            <h3>YouTube Channels to Follow</h3>
+            <ul>
+                <li><strong>Joshua Bardwell</strong> - Best technical explanations</li>
+                <li><strong>UAVFutures (Stew)</strong> - Budget builds</li>
+                <li><strong>Mr. Steele</strong> - Freestyle inspiration</li>
+                <li><strong>Painless360</strong> - Setup tutorials</li>
+                <li><strong>Albert Kim</strong> - Cinematic flying</li>
+                <li><strong>Le Drib</strong> - Freestyle master</li>
+            </ul>
+            
+            <h3>Useful Websites</h3>
+            <ul>
+                <li><strong>oscarliang.com</strong> - Detailed guides and reviews</li>
+                <li><strong>intofpv.com</strong> - Part compatibility checker</li>
+                <li><strong>rotorbuilds.com</strong> - See other people's builds</li>
+                <li><strong>betaflight.com</strong> - Official firmware and documentation</li>
+            </ul>
+            
+            <h3>Simulators for Practice</h3>
+            <ul>
+                <li><strong>Liftoff</strong> - Most realistic physics (PHP 800-1,000 on Steam)</li>
+                <li><strong>DRL Simulator</strong> - Good graphics (Free)</li>
+                <li><strong>Velocidrone</strong> - Best for racing practice (PHP 800-1,000)</li>
+                <li><strong>Uncrashed</strong> - Free FPV simulator (Free)</li>
+            </ul>
+        </div>
+        
+        <div class="section">
+            <h2>Glossary of Terms</h2>
+            
+            <table>
+                <tr>
+                    <th>Term</th>
+                    <th>Meaning</th>
+                </tr>
+                <tr>
+                    <td>FPV</td>
+                    <td>First Person View - Flying while seeing through camera</td>
+                </tr>
+                <tr>
+                    <td>LiPo</td>
+                    <td>Lithium Polymer battery</td>
+                </tr>
+                <tr>
+                    <td>4S, 6S</td>
+                    <td>Number of battery cells (4S = 14.8V, 6S = 22.2V)</td>
+                </tr>
+                <tr>
+                    <td>KV</td>
+                    <td>Motor speed rating (RPM per volt)</td>
+                </tr>
+                <tr>
+                    <td>ESC</td>
+                    <td>Electronic Speed Controller</td>
+                </tr>
+                <tr>
+                    <td>FC</td>
+                    <td>Flight Controller</td>
+                </tr>
+                <tr>
+                    <td>VTX</td>
+                    <td>Video Transmitter</td>
+                </tr>
+                <tr>
+                    <td>PDB</td>
+                    <td>Power Distribution Board</td>
+                </tr>
+                <tr>
+                    <td>BEC</td>
+                    <td>Battery Elimination Circuit (voltage regulator)</td>
+                </tr>
+                <tr>
+                    <td>PID</td>
+                    <td>Proportional Integral Derivative (flight tuning)</td>
+                </tr>
+                <tr>
+                    <td>Acro</td>
+                    <td>Acrobatic mode (no self-leveling)</td>
+                </tr>
+                <tr>
+                    <td>Angle</td>
+                    <td>Stabilized mode (self-levels)</td>
+                </tr>
+                <tr>
+                    <td>Horizon</td>
+                    <td>Mix of Angle and Acro modes</td>
+                </tr>
+                <tr>
+                    <td>RSSI</td>
+                    <td>Received Signal Strength Indicator</td>
+                </tr>
+                <tr>
+                    <td>OSD</td>
+                    <td>On Screen Display (info on video feed)</td>
+                </tr>
+                <tr>
+                    <td>DVR</td>
+                    <td>Digital Video Recording (records FPV feed)</td>
+                </tr>
+                <tr>
+                    <td>UART</td>
+                    <td>Serial communication port on FC</td>
+                </tr>
+                <tr>
+                    <td>SBUS</td>
+                    <td>Communication protocol for receiver</td>
+                </tr>
+                <tr>
+                    <td>PWM</td>
+                    <td>Pulse Width Modulation (old motor protocol)</td>
+                </tr>
+                <tr>
+                    <td>Blackbox</td>
+                    <td>Flight data logging for analysis</td>
+                </tr>
+                <tr>
+                    <td>Rates</td>
+                    <td>Stick sensitivity settings</td>
+                </tr>
+                <tr>
+                    <td>Expo</td>
+                    <td>Exponential curve for stick feel</td>
+                </tr>
+                <tr>
+                    <td>Failsafe</td>
+                    <td>What happens when signal is lost</td>
+                </tr>
+                <tr>
+                    <td>LOS</td>
+                    <td>Line of Sight (flying by seeing drone)</td>
+                </tr>
+                <tr>
+                    <td>Freestyle</td>
+                    <td>Flying style with tricks and flips</td>
+                </tr>
+                <tr>
+                    <td>Racing</td>
+                    <td>Flying through course as fast as possible</td>
+                </tr>
+                <tr>
+                    <td>Bind</td>
+                    <td>Pairing transmitter with receiver</td>
+                </tr>
+                <tr>
+                    <td>Flash</td>
+                    <td>Installing firmware</td>
+                </tr>
+                <tr>
+                    <td>Tune</td>
+                    <td>Adjusting PID settings</td>
+                </tr>
+            </table>
+        </div>
+        
+        <div class="section" style="background: #2c3e50; color: white; text-align: center;">
+            <h2 style="color: white; background: transparent;">Happy Flying!</h2>
+            <p>This guide covers the basics. Keep learning, stay safe, and enjoy building and flying your drone.</p>
+            <p style="font-size: 12px; margin-top: 15px;">For updates and more tips, join Philippine FPV communities on Facebook</p>
+            <p style="font-size: 11px; margin-top: 10px; opacity: 0.8;">Last updated: December 2024</p>
+        </div>
+    </div>
+    
+    <script>
+        // Simple scroll function - defined first
+        function scrollToSection(sectionId) {
+            try {
+                console.log('Scrolling to: ' + sectionId);
+                const element = document.getElementById(sectionId);
+                
+                if (element) {
+                    console.log('Element found!');
+                    // Use offsetTop for more reliable positioning
+                    const offsetPosition = element.offsetTop - 60;
+                    
+                    // Scroll to position
+                    window.scrollTo({
+                        top: offsetPosition,
+                        behavior: 'smooth'
+                    });
+                } else {
+                    console.log('Section not found: ' + sectionId);
+                    // Try to find all sections
+                    const allSections = document.querySelectorAll('.section[id]');
+                    console.log('Available sections:', Array.from(allSections).map(s => s.id));
+                }
+            } catch(err) {
+                console.log('Scroll error:', err);
+            }
+        }
+        
+        // Budget calculator function
+        function calculateTotal() {
+            try {
+                const frame = parseFloat(document.getElementById('frame').value) || 0;
+                const motors = parseFloat(document.getElementById('motors').value) || 0;
+                const esc = parseFloat(document.getElementById('esc').value) || 0;
+                const fc = parseFloat(document.getElementById('fc').value) || 0;
+                const rx = parseFloat(document.getElementById('rx').value) || 0;
+                const camera = parseFloat(document.getElementById('camera').value) || 0;
+                const vtx = parseFloat(document.getElementById('vtx').value) || 0;
+                const batteries = parseFloat(document.getElementById('batteries').value) || 0;
+                const misc = parseFloat(document.getElementById('misc').value) || 0;
+                const tools = parseFloat(document.getElementById('tools').value) || 0;
+                const transmitter = parseFloat(document.getElementById('transmitter').value) || 0;
+                const goggles = parseFloat(document.getElementById('goggles').value) || 0;
+                const charger = parseFloat(document.getElementById('charger').value) || 0;
+                
+                const total = frame + motors + esc + fc + rx + camera + vtx + batteries + misc + tools + transmitter + goggles + charger;
+                
+                document.getElementById('totalAmount').textContent = total.toLocaleString('en-PH');
+                document.getElementById('total').style.display = 'block';
+            } catch(err) {
+                console.log('Calculator error:', err);
+            }
+        }
+    </script>
+</body>
+</html>
+            
